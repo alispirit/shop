@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Products} from "./products";
 import {ProductService} from '../services';
-
+import {ListItems} from "./listItems";
 export class Order extends Component {
     state = {
         products: [],
@@ -60,6 +60,7 @@ export class Order extends Component {
         return (
             <div>
                 <Products dfc={this.deleteFromList} atl={this.addToList} getproducts={this.getproductsHandle}/>
+                <ListItems orderList={this.state.order}/>
             </div>
         );
     }

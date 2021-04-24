@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import './App.css';
 import {Order} from './comonents/order';
 import {Navbar} from './comonents/navbar';
-import {ListItems} from "./comonents/listItems"
+
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Login} from "./auth/login";
 
 export class App extends Component {
     state = {
@@ -17,14 +19,26 @@ export class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <Navbar orderList={this.state.orderList}/>
-                <div className="container">
-                    <Order addItem={this.addToList} removeItem={this.deleteFromList}/>
-                    <ListItems orderList={this.state.orderList}/>
-                </div>
+            <BrowserRouter>
+                <div className="App">
 
-            </div>
+
+                    <Navbar orderList={this.state.orderList}/>
+                    {/*<div className="container">*/}
+                    {/*    <Order addItem={this.addToList} removeItem={this.deleteFromList}/>*/}
+                    {/*    <ListItems orderList={this.state.orderList}/>*/}
+                    {/*</div>*/}
+                    <Switch>
+                        <Route exact path="/"
+                               render={(props) => <Order addItem={this.addToList}
+                                                         removeItem={this.deleteFromList} {...props} />}
+                        />
+                        <Route path="/login" component={Login}/>
+                    </Switch>
+
+
+                </div>
+            </BrowserRouter>
         );
     }
 
