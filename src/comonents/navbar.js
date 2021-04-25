@@ -14,7 +14,7 @@ export class Navbar extends Component {
             price += item['0']['price'];
             // console.log(item['0']['price'])
         });
-        console.log(total, price);
+        // console.log(total, price);
         return {"total": total, "price": price};
 
     }

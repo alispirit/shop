@@ -38,7 +38,7 @@ export class Order extends Component {
         if (indexDelete > -1) {
             order.splice(indexDelete, 1);
         }
-        console.log(order);
+        // console.log(order);
         this.setState({order});
         this.setState(
             {order},
@@ -58,7 +58,7 @@ export class Order extends Component {
         // console.log(this.state);
 
         return (
-            <div>
+            <div className="container">
                 <Products dfc={this.deleteFromList} atl={this.addToList} getproducts={this.getproductsHandle}/>
                 <ListItems orderList={this.state.order}/>
             </div>
